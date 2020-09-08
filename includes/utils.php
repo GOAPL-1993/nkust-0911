@@ -15,4 +15,17 @@ function get_counter($target) {
     $sql = "UPDATE counter SET value='$value' WHERE name='$target'";
     $conn->query($sql);
 }
+
+function get_video_numbers($id) {
+    global $conn;
+    $sql = "SELECT COUNT(*) AS numbers from video WHERE pid='$id'";
+    $result = $conn->query($sql);
+    if ($result->num_rows>0) {
+        $row = $result->fetch_assoc();
+        $numbers = $row["numbers"];
+    } else {
+        $numbers = 0;
+    }
+    return $numbers;
+}
 ?>

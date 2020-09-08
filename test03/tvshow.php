@@ -35,6 +35,7 @@ if ($user_type!=NULL) {
   //如果已經登入的話，要有可以新增影片的表單
   echo "<form method=POST action=addvideo.php>";
   echo "<input type=hidden value='$pid' name=pid>";
+  echo "<input type=hidden value='$name' name=name>";
   echo "影片名稱：<input type=text name=title size=40>";
   echo "影片ID：<input type=text name=vid size=15>";
   echo "<input type=submit value=新增>";
@@ -59,9 +60,7 @@ if ($result->num_rows > 0) { //檢查記錄的數量，看看是否有資料
     // 如果是已登入使用者，要加上貼文管理（連結）的欄位
     if ($user_type!=NULL) {
       echo "<td>";
-      echo "<a href='edit.php?id=$id'>編輯</a>";
-      echo " - ";
-      echo "<a href='delete.php?id=$id'>刪除</a>";
+      echo "<a href='delvideo.php?id=$id&pid=$pid&name=$name'>刪除</a>";
       echo "</td>";
     }
     echo "</tr>";

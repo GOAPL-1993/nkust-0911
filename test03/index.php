@@ -59,7 +59,11 @@ if ($result->num_rows > 0) { //檢查記錄的數量，看看是否有資料
     $id = $row["id"];
     $name = $row["name"];
     echo "<tr bgcolor=#ffffcc>";
-    echo "<td><a href=tvshow.php?pid=$id&name=$name>" . $row["name"]. "</a></td>"; 
+    echo "<td><a href=tvshow.php?pid=$id&name=$name>" . 
+         $row["name"] . "</a>(" . 
+         get_video_numbers($id) . 
+         "支影片)</td>"; 
+
     // 如果是已登入使用者，要加上貼文管理（連結）的欄位
     if ($user_type!=NULL) {
       echo "<td>";
