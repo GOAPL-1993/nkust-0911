@@ -25,41 +25,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `playlist`
+-- 資料表結構 `counter`
 --
 
-CREATE TABLE `playlist` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL
+CREATE TABLE `counter` (
+  `name` varchar(20) NOT NULL,
+  `value` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- 傾印資料表的資料 `playlist`
+-- 傾印資料表的資料 `counter`
 --
 
-INSERT INTO `playlist` (`id`, `name`) VALUES
-(1, '我的直播新聞電視台'),
-(2, '老高和小苿有趣的影片');
-
---
--- 已傾印資料表的索引
---
-
---
--- 資料表索引 `playlist`
---
-ALTER TABLE `playlist`
-  ADD PRIMARY KEY (`id`);
-
---
--- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
---
-
---
--- 使用資料表自動遞增(AUTO_INCREMENT) `playlist`
---
-ALTER TABLE `playlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+INSERT INTO `counter` (`name`, `value`) VALUES
+('homepage', 68),
+('test03', 20053);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

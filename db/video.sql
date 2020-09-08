@@ -49,7 +49,8 @@ INSERT INTO `video` (`id`, `title`, `vid`, `pid`) VALUES
 (7, '海奧華預言，人類起源，耶穌是誰，金字塔之謎，你想知道的答案這裡都有 ', '1rUWY2z4wUk', 2),
 (8, '如果沒有月球，“它們”就會出現在地球上', 'r46O1ZyEbQY', 2),
 (9, '最神奇的星球，地球以及人類存在的真正原因 ', 'BLpv9fCZqcs', 2),
-(10, '人類毀滅的第三種可能，近期可能就會發生的超新星爆炸', 'vBbMnDFy4YY', 2);
+(10, '人類毀滅的第三種可能，近期可能就會發生的超新星爆炸', 'vBbMnDFy4YY', 2),
+(31, '老高講電影，這是一部豆瓣評分9.3分的好片', 'KefYmjM0E7g', 2);
 
 --
 -- 已傾印資料表的索引
@@ -69,7 +70,7 @@ ALTER TABLE `video`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `video`
 --
 ALTER TABLE `video`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
