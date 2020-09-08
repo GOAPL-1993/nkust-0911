@@ -57,8 +57,9 @@ if ($result->num_rows > 0) { //檢查記錄的數量，看看是否有資料
   }
   while($row = $result->fetch_assoc()) {
     $id = $row["id"];
+    $name = $row["name"];
     echo "<tr bgcolor=#ffffcc>";
-    echo "<td><a href=tvshow.php?pid=$id>" . $row["name"]. "</a></td>"; 
+    echo "<td><a href=tvshow.php?pid=$id&name=$name>" . $row["name"]. "</a></td>"; 
     // 如果是已登入使用者，要加上貼文管理（連結）的欄位
     if ($user_type!=NULL) {
       echo "<td>";
