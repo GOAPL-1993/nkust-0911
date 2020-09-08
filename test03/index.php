@@ -1,6 +1,6 @@
 <?php
   require "../includes/config.php";
-
+  require "../includes/utils.php";
   session_start();
   //先從Session中取出user_type
   //以備後續確認瀏覽者的身份別
@@ -73,7 +73,8 @@ if ($result->num_rows > 0) { //檢查記錄的數量，看看是否有資料
 } else {
   echo "0 results"; // 如果資料表中沒有記錄，要顯示的內容
 }
-$conn->close();
+  get_counter("test03");
+  $conn->close();
 ?>
 <hr>
 <?php include "../includes/footer.php"; ?>
