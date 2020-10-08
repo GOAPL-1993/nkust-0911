@@ -8,8 +8,8 @@
     //$menudata是整個選單的陣列
     //中間的每一個項目都是以結合陣列的型式儲存名稱和連結
     $menudata = array (
-        array("name"=>"回首頁", "link"=>"/mysite/nkust-0908/index.php"),
-        array("name"=>"我的播放清單",  "link"=>"/mysite/nkust-0908/test03"),
+        array("name"=>"回首頁", "link"=>"/mysite/nkust-0911/index.php"),
+        array("name"=>"我的播放清單",  "link"=>"/mysite/nkust-0911/test03"),
         array("name"=>"高雄科大",  "link"=>"http://www.nkust.edu.tw")
     );
     echo "<form method=POST action=index.php>";

@@ -11,10 +11,10 @@
         font-family:微軟正黑體;
     }
 </style>
-<title>何敏煌0908</title>
+<title>阿鈺0911</title>
 </head>
 <body>
-<h2>何敏煌0908 PHP練習記錄</h2>
+<h2>阿鈺0911 PHP練習記錄</h2>
 <hr>
 <?php
     get_counter("homepage");

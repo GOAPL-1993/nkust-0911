@@ -1,12 +1,17 @@
 <?php
-  //require "/mysite/nkust-0908/includes/config.php";
   require "../includes/config.php";
   $pid = $_GET["pid"];
   $name = $_GET["name"];
+  $vid = $_GET["vid"];
+  if ($vid==NULL){
+    $vid = "SL7_HnAeuyE";
+  }
   session_start();
   //先從Session中取出user_type
   //以備後續確認瀏覽者的身份別
   $user_type = $_SESSION["user_type"];
+  $tag = "<iframe width='560' height='320' src='https://www.youtube.com/embed/^^^^' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+  $imgtag = "https://i.ytimg.com/vi/^^^^/hqdefault.jpg";
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,29 +48,41 @@ if ($user_type!=NULL) {
 }
 if ($result->num_rows > 0) { //檢查記錄的數量，看看是否有資料
   // output data of each row
+  echo "<center>";
+  echo "<table width=800>";
+  echo "<tr><td align=center>";
+  echo $title;
+  echo str_replace("^^^^", $vid, $tag);
+  echo "</td></tr>";
+  echo "</table>";
   echo "<table width=800 bgcolor=#ff00ff>";
-  //下面這行是表格的標題列
-  if ($user_type==NULL) {
-    //如果未登入的話，就維持原有的標題
-    echo "<tr bgcolor=#bbbbbb><td>影片標題</td><td>影片ID</td></tr>";
-  } else {
-    //如果已經登入的話，就加上「貼文管理」欄位
-    echo "<tr bgcolor=#bbbbbb><td>影片標題</td><td>影片ID</td><td>貼文管理</td></tr>";
-  }
+  echo "<tr bgcolor=#ffffcc>";
+  $vc = 0;
   while($row = $result->fetch_assoc()) {
+  //$result->fetch_assoc去拿資料，再放到$row
     $id = $row["id"];
-    echo "<tr bgcolor=#ffffcc>";
-    echo "<td>" . $row["title"]. "</td>"; 
-    echo "<td>" . $row["vid"]. "</td>"; 
+    $vidindb = $row["vid"];
+    $titleindb = $row["title"];
+    echo "<td>" ; 
+    echo "<a href='tvshow.php?pid=$pid&name=$name&vid=$vidindb&title='$titleindb'>";
+    echo "<img src='".
+     str_replace ("^^^^", $row["vid"], $imgtag).
+     "'width=200></a><br>"; 
+    echo $row["title"]. "<br>";
     // 如果是已登入使用者，要加上貼文管理（連結）的欄位
     if ($user_type!=NULL) {
-      echo "<td>";
       echo "<a href='delvideo.php?id=$id&pid=$pid&name=$name'>刪除</a>";
-      echo "</td>";
     }
-    echo "</tr>";
+    $vc++;
+    echo "<br>$vc";
+    echo "</td>";
+    if ($vc%4==0){
+      echo "</tr><tr bgcolor=#ffffcc>";
+    }
   }
+  echo "</tr>";
   echo "</table>";
+  echo "</center>";
 } else {
   echo "0 results"; // 如果資料表中沒有記錄，要顯示的內容
 }
